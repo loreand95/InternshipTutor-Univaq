@@ -37,6 +37,10 @@ public class DB {
     
     
     public static Connection getConnection() throws DataLayerException {
+
+        if(dataSource==null){
+            init();
+        }
         try {
             return dataSource.getConnection();
         } catch (SQLException ex) {
